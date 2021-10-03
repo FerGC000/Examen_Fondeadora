@@ -1,0 +1,68 @@
+CREATE TABLE public.car_type (
+	car_type_id serial4 NOT NULL,
+	code varchar(20) NOT NULL,
+	description_us varchar(20) NOT NULL,
+	description_es varchar(20) NOT NULL,
+	is_active bool NOT NULL,
+	CONSTRAINT car_type_pkey PRIMARY KEY (car_type_id)
+);
+
+CREATE TABLE public.delivery_moment_data (
+	rental_car_id int4 NOT NULL,
+	office_data_id int4 NOT NULL,
+	"date" timestamp NOT NULL
+);
+
+ALTER TABLE public.delivery_moment_data ADD CONSTRAINT delivery_moment_data_fk FOREIGN KEY (rental_car_id) REFERENCES public.rental_cars(rental_car_id);
+ALTER TABLE public.delivery_moment_data ADD CONSTRAINT delivery_moment_data_fk_1 FOREIGN KEY (office_data_id) REFERENCES public.office_data(office_data_id);
+
+CREATE TABLE public.motor_type (
+	motor_type_id serial4 NOT NULL,
+	code varchar(20) NOT NULL,
+	description_us varchar(20) NOT NULL,
+	description_es varchar(20) NOT NULL,
+	is_active bool NOT NULL,
+	CONSTRAINT motor_type_pkey PRIMARY KEY (motor_type_id)
+);
+
+CREATE TABLE public.office_data (
+	office_data_id serial4 NOT NULL,
+	"name" varchar(50) NOT NULL,
+	address_1 varchar(50) NOT NULL,
+	address_2 varchar(50) NOT NULL,
+	cp int4 NOT NULL,
+	city varchar(20) NOT NULL,
+	state varchar(20) NOT NULL,
+	CONSTRAINT office_data_pkey PRIMARY KEY (office_data_id)
+);
+
+CREATE TABLE public.rental_cars (
+	rental_car_id serial4 NOT NULL,
+	motor_type_id int4 NOT NULL,
+	trade_mark_type_id int4 NOT NULL,
+	car_type_id int4 NOT NULL,
+	niv varchar(20) NOT NULL,
+	"year" int2 NOT NULL,
+	model varchar(20) NOT NULL,
+	expedition int2 NOT NULL,
+	capacity int2 NOT NULL,
+	CONSTRAINT rental_cars_pkey PRIMARY KEY (rental_car_id)
+);
+
+CREATE TABLE public.rental_moment_data (
+	rental_car_id int4 NOT NULL,
+	office_data_id int4 NOT NULL,
+	"date" timestamp NOT NULL
+);
+
+ALTER TABLE public.rental_moment_data ADD CONSTRAINT rental_moment_data_fk FOREIGN KEY (rental_car_id) REFERENCES public.rental_cars(rental_car_id);
+ALTER TABLE public.rental_moment_data ADD CONSTRAINT rental_moment_data_fk_1 FOREIGN KEY (office_data_id) REFERENCES public.office_data(office_data_id);
+
+CREATE TABLE public.trade_mark_type (
+	trade_mark_type_id serial4 NOT NULL,
+	code varchar(20) NOT NULL,
+	description_us varchar(20) NOT NULL,
+	description_es varchar(20) NOT NULL,
+	is_active bool NOT NULL,
+	CONSTRAINT trade_mark_type_pkey PRIMARY KEY (trade_mark_type_id)
+);

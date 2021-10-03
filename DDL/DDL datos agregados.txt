@@ -1,0 +1,50 @@
+CREATE TABLE public.acc_table_1 (
+	trade_mark text NULL,
+	model text NULL,
+	rental_days int4 NULL
+);
+
+CREATE TABLE public.acc_table_2 (
+	trade_mark text NULL,
+	model text NULL,
+	"year" int8 NULL,
+	rental_days int4 NULL
+);
+
+CREATE TABLE public.acc_table_3 (
+	trade_mark text NULL,
+	model text NULL,
+	"year" int8 NULL,
+	car_type text NULL,
+	rental_days int4 NULL
+);
+
+CREATE TABLE public.acc_table_4 (
+	trade_mark text NULL,
+	model text NULL,
+	"year" int8 NULL,
+	car_type text NULL,
+	motor_type text NULL,
+	rental_days int4 NULL
+);
+
+CREATE TABLE public.acc_table_5 (
+	trade_mark text NULL,
+	model text NULL,
+	"year" int8 NULL,
+	car_type text NULL,
+	motor_type text NULL,
+	departure_office text NULL,
+	rental_days int4 NULL
+);
+
+CREATE TABLE public.acc_table_6 (
+	trade_mark text NULL,
+	model text NULL,
+	"year" int8 NULL,
+	car_type text NULL,
+	motor_type text NULL,
+	departure_office text NULL,
+	entrance_office text NULL,
+	rental_days int4 NULL
+);
